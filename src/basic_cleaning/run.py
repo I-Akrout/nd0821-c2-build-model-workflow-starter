@@ -49,6 +49,9 @@ def go(args):
         logger.error("ERROR: No valid data left")
         raise err
 
+    idx = df['longitude'].between(-74.25, - 73.50) &\
+         df['latitude'].between(40.5, 41.2)
+
     df = df[idx].copy()
 
     logging.info("SUCCESS: Only data entries with adequate prices \
